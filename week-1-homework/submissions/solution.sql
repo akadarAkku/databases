@@ -1,3 +1,4 @@
+--- 1. List all full names of car makers from `japan`
 show tables;
 describe tables;
 select * from (car_makers) limit 5;
