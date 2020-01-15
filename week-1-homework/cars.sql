@@ -962,3 +962,12 @@ VALUES (1, 1, 'amc'),
        (34, 23, 'hyundai'),
        (35, 6, 'jeep'),
        (36, 19, 'scion');
+show tables;
+describe tables;
+select * from (car_makers) limit 5;
+describe car_makers;
+describe countries;
+select id from countries where name = 'japan';
+select full_name from car_makers where country = 4;
+SELECT MAX(speed) FROM car_makers;
+
