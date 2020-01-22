@@ -1,6 +1,7 @@
 
 show tables;
 select * from city limit 5;
+-----------------------------------------------
 -- 1. What's the population of the world ?
 SELECT sum(population)
 FROM world.country; -- 6078749450
