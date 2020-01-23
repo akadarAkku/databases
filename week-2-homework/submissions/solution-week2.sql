@@ -1,10 +1,13 @@
-
+SHOW databases;
+use world;
 show tables;
 select * from city limit 5;
 -----------------------------------------------
--- 1. What's the population of the world ?
-SELECT sum(population)
-FROM world.country; -- 6078749450
+-- What is the name and the population of the most populated city in India?
+SELECT name, (Population)
+FROM world.city 
+WHERE CountryCode="IND"
+Order by Population desc limit 1;
 -- 2. What is the name and the population of the most populated city in India?
 SELECT name, Population FROM city WHERE CountryCode = (SELECT code FROM country WHERE name = "india") ORDER BY Population;
 -- Mumbai (Bombay)	10500000
@@ -18,13 +21,18 @@ SELECT name, Population FROM city WHERE CountryCode = (SELECT code FROM country 
 
 
 -- 3. Find which countries do not have a capital.
-SELECT * FROM world.country WHERE not capital; -- ?
+SELECT * FROM country WHERE capital IS NULL;
 
 -- 4 Which country has the lowest population? List all if more than one
-Select name, max(population) As sumPop
-From world.country; -- Aruba: population: 1277,558000
+Select name, min(population) As sumPop
+From world.country; -- Aruba: population: 0
 
--- What are the names of all the cities in Vietnam?
-SELECT NAME FROM world.city WHERE COUNTRYCODE = 'Vietnam' ;
+-- 5 What are the names of all the cities in Vietnam?
+SELECT name
+FROM city
+WHERE countrycode = 'VNM';
+
+-- 6 Find which countries do not have a capital.
+
 
 
